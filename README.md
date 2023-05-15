@@ -5,7 +5,8 @@ Built a web application using API that shows you information about movies.
 1. You can search your favourite movies.
 2. It gives you information about upcoming,trending and top rated movies.
 3. It gives you similar recommendation.
-4. Trailers,teaser of movies can also be seen in the website
+4. Trailers,teaser of movies can also be seen in the website.
+5. No framework used.
 
 
 
