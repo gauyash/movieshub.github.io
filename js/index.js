@@ -2,9 +2,6 @@ let id;
 const imageUrl = "https://image.tmdb.org/t/p/w1280";
 const apiKey = "51403d27c0ea2c2be0c829509139f07d";
 
-
-
-
 async function fetchApi(url) {
   try {
     const response = await fetch(url);
@@ -57,19 +54,21 @@ let displayMostPopular = (data) => {
         `;
 
     img.addEventListener("click", () => {
+      const{title,vote_average,overview,release_date}=items;
+
       watchMovie.innerHTML = `
-            <h2 class="movie-title">${items.title}</h2>
+            <h2 class="movie-title big__heading">${title}</h2>
 
                                     
             <div class="about-details">
-            <span class="year">${items.release_date.split("-")[0]}</span>
-            <span class="rating"><ion-icon name="star"></ion-icon>${items.vote_average.toFixed(
+            <span class="year">${release_date.split("-")[0]}</span>
+            <span class="rating"><ion-icon name="star"></ion-icon>${vote_average.toFixed(
               1
             )}</span>
             </div>  
       
             <div class="overview">
-                <p>${items.overview}</p>
+                <p>${overview}</p>
             </div>
 
             <button class="watch-btn" onmousedown="show_details(${
@@ -84,7 +83,6 @@ let displayMostPopular = (data) => {
 
 function show_details(index) {
   localStorage.setItem("id", index);
-  localStorage.setItem("idBoolean", true);
 }
 
 async function getGenreList() {
@@ -123,21 +121,8 @@ async function getTrendingMovies() {
 getTrendingMovies();
 
 function displayTrendingMovies(data) {
-  let sliderTrending = document.querySelector(".slider--trending");
-
-  data.forEach((items) => {
-    let a = document.createElement("a");
-    a.href = "movie_details_page.html";
-    a.classList.add("slider__box");
-    let img = document.createElement("img");
-    img.src = `${imageUrl}${items.poster_path}`;
-    a.append(img);
-    sliderTrending.append(a);
-
-    a.addEventListener("mousedown", () => {
-      localStorage.setItem("id", items.id);
-    });
-  });
+  let slider = document.querySelector(".slider--trending");
+  displayMovies(data,slider);
 }
 
 // UPCOMING MOVIES
@@ -151,20 +136,8 @@ async function getUpcomingMovies() {
 getUpcomingMovies();
 
 function displayUpcomingMovies(data) {
-  let sliderUpcoming = document.querySelector(".slider--upcoming");
-  data.forEach((items) => {
-    let a = document.createElement("a");
-    a.href = "movie_details_page.html";
-    a.classList.add("slider__box");
-    let img = document.createElement("img");
-    img.src = `${imageUrl}${items.poster_path}`;
-    a.append(img);
-    sliderUpcoming.append(a);
-
-    a.addEventListener("mousedown", () => {
-      localStorage.setItem("id", items.id);
-    });
-  });
+  let slider = document.querySelector(".slider--upcoming");
+  displayMovies(data,slider);
 }
 
 // TOP RATED MOVIES
@@ -178,7 +151,13 @@ async function getTopRatedMovies() {
 getTopRatedMovies();
 
 function displayTopRatedMovies(data) {
-  let sliderTop = document.querySelector(".slider--top");
+  let slider = document.querySelector(".slider--top");
+  displayMovies(data,slider);
+}
+
+// DISPLAYING MOVIES IN SLIDERS
+
+function displayMovies(data, slider) {
   data.forEach((items) => {
     let a = document.createElement("a");
     a.href = "movie_details_page.html";
@@ -186,7 +165,7 @@ function displayTopRatedMovies(data) {
     let img = document.createElement("img");
     img.src = `${imageUrl}${items.poster_path}`;
     a.append(img);
-    sliderTop.append(a);
+    slider.append(a);
 
     a.addEventListener("mousedown", () => {
       localStorage.setItem("id", items.id);
@@ -201,20 +180,18 @@ function handleSearch() {
 
   searchBtn.forEach((btn, index) => {
     btn.addEventListener("click", () => {
-      localStorage.setItem("id", search[index].value);
       localStorage.setItem("searchName", search[index].value);
     });
   });
 
   search.forEach((input, index) => {
     input.addEventListener("change", () => {
-      localStorage.setItem("id", input.value);
       localStorage.setItem("searchName", input.value);
     });
   });
 }
 
-handleSearch()
+handleSearch();
 
 // Toggle aside menu
 function toggleMenu() {
@@ -268,8 +245,8 @@ btnRight.forEach((items, index) => {
       limit = 4;
     } else if (itemsPerScreen == 3) {
       limit = 6;
-    }else if(itemsPerScreen == 2){
-      limit= 9;
+    } else if (itemsPerScreen == 2) {
+      limit = 9;
     }
 
     if (sliderIndex != limit) {

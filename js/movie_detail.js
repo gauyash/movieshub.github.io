@@ -182,14 +182,12 @@ function handleSearch() {
 
   searchBtn.forEach((btn, index) => {
     btn.addEventListener("click", () => {
-      localStorage.setItem("id", search[index].value);
       localStorage.setItem("searchName", search[index].value);
     });
   });
 
   search.forEach((input, index) => {
     input.addEventListener("change", () => {
-      localStorage.setItem("id", input.value);
       localStorage.setItem("searchName", input.value);
     });
   });

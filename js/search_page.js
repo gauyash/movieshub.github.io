@@ -37,27 +37,10 @@ function displayGenreList(data) {
   });
 }
 
-let search = document.querySelectorAll("#search-text");
 
-let searchBar = document.querySelectorAll(".search-bar");
-let searchbtn = document.querySelectorAll(".search-btn");
-
-searchbtn.forEach((items, index) => {
-  items.addEventListener("click", () => {
-    localStorage.setItem("id", search[index].value);
-    searchAPI();
-  });
-});
-
-search.forEach((items, index) => {
-  items.addEventListener("change", () => {
-    localStorage.setItem("id", items.value);
-    searchAPI();
-  });
-});
 
 async function getSearchApi() {
-  let searchVal = localStorage.getItem("id");
+  let searchVal = localStorage.getItem("searchName");
   let genreTitle = document.querySelector(".genre-title");
   genreTitle.innerHTML = `
     <h2 class="search-title-small">Results for </h2>
@@ -92,14 +75,41 @@ function displaySearchApi(data) {
   });
 }
 
-let menuIcon = document.querySelector(".menu i");
-let aside = document.querySelector("aside");
+// Handle search functionality
+function handleSearch() {
+  let search = document.querySelectorAll("#search-text");
+  let searchBtn = document.querySelectorAll(".search-btn");
 
-menuIcon.addEventListener("click", () => {
-  aside.classList.toggle("active");
-  if (menuIcon.classList[1] == "fa-bars") {
-    menuIcon.classList.replace("fa-bars", "fa-xmark");
-  } else {
-    menuIcon.classList.replace("fa-xmark", "fa-bars");
-  }
-});
+  searchBtn.forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      localStorage.setItem("searchName", search[index].value);
+      getSearchApi();
+    });
+  });
+
+  search.forEach((input, index) => {
+    input.addEventListener("change", () => {
+      localStorage.setItem("searchName", search[index].value);
+      getSearchApi();
+    });
+  });
+}
+
+handleSearch();
+
+// Toggle aside menu
+function toggleMenu() {
+  let menuIcon = document.querySelector(".menu i");
+  let aside = document.querySelector("aside");
+
+  menuIcon.addEventListener("click", () => {
+    aside.classList.toggle("active");
+    if (menuIcon.classList.contains("fa-bars")) {
+      menuIcon.classList.replace("fa-bars", "fa-xmark");
+    } else {
+      menuIcon.classList.replace("fa-xmark", "fa-bars");
+    }
+  });
+}
+
+toggleMenu();
