@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MoviesHub</title>
+    <!-- CSS FILES -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/discover_genres.css" />
+    <!-- FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- JS FILE -->
+    <script defer src="js/discover_genres.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo-box">
+          <img src="img/logo.png" alt="" class="logo-box__img" />
+          <a href="index.html"><h2 class="logo-title">MoviesHub</h2></a>
+        </div>
+
+        <div class="actions">
+          <div class="search-bar">
+            <form action="search_page.html">
+              <input
+                autofocus
+                autocomplete="off"
+                type="text"
+                name=""
+                id="search-text"
+                placeholder="Search any movie..."
+              />
+            </form>
+            <a href="search_page.html" class="search-btn"
+              ><i class="fa-solid fa-magnifying-glass fa-2x"></i
+            ></a>
+          </div>
+
+          <div class="hamburger-menu">
+            <div class="menu">
+              <i class="fa-solid fa-bars"></i>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <section>
+      <div class="section-row">
+        <aside>
+          <div class="menu-box">
+            <div class="search-bar">
+              <form action="search_page.html">
+                <input
+                  autofocus
+                  autocomplete="off"
+                  type="text"
+                  name=""
+                  id="search-text"
+                  placeholder="Search any movie..."
+                />
+              </form>
+              <a href="search_page.html" class="search-btn"
+                ><i class="fa-solid fa-magnifying-glass fa-2x"></i
+              ></a>
+            </div>
+            <div class="menu-row">
+              <h2 class="menu-title secondary__heading">Genre</h2>
+
+              <ul class="menu-bar"></ul>
+            </div>
+          </div>
+        </aside>
+
+        <main>
+          <div class="main-row container">
+            <div class="discover-box">
+              <h2 class="genre-title secondary__heading"></h2>
+
+              <div class="discover-row"></div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </section>
+
+    <!-- <script src="js/index.js"></script>     -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

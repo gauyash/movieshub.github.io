@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MoviesHub</title>
+    <!-- CSS FILES -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/movie_details.css" />
+    <!-- FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- JS FILE -->
+    <script defer src="js/index.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo-box">
+          <img src="img/logo.png" alt="" class="logo-box__img" />
+          <a href="index.html"><h2 class="logo-title">MoviesHub</h2></a>
+        </div>
+
+        <div class="actions">
+          <div class="search-bar">
+            <form action="search_page.html">
+              <input
+                autofocus
+                autocomplete="off"
+                type="text"
+                name=""
+                id="search-text"
+                placeholder="Search any movie..."
+              />
+            </form>
+            <a href="search_page.html" class="search-btn"
+              ><i class="fa-solid fa-magnifying-glass fa-2x"></i
+            ></a>
+          </div>
+
+          <div class="hamburger-menu">
+            <div class="menu">
+              <i class="fa-solid fa-bars"></i>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <section>
+      <div class="section-row">
+        <aside>
+          <div class="menu-box">
+            <div class="search-bar">
+              <form action="search_page.html">
+                <input
+                  autofocus
+                  autocomplete="off"
+                  type="text"
+                  name=""
+                  id="search-text"
+                  placeholder="Search any movie..."
+                />
+              </form>
+              <a href="search_page.html" class="search-btn"
+                ><i class="fa-solid fa-magnifying-glass fa-2x"></i
+              ></a>
+            </div>
+            <div class="menu-row">
+              <h2 class="menu-title secondary__heading">Genre</h2>
+
+              <ul class="menu-bar"></ul>
+            </div>
+          </div>
+        </aside>
+
+        <main>
+          <div class="main-row">
+            <div class="featuring-shows">
+              <div class="poster-wall">
+                <img src="" alt="" class="featured-poster" />
+
+                <div class="featuring">
+                  <div class="watch-movie"></div>
+                  <div class="shows">
+                    <div class="shows__row"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="weekly-trendy">
+              <h2 class="title secondary__heading">Weekly Trending Movies</h2>
+
+              <div class="carousel">
+                <button class="btn btn--left">
+                  <i class="fa-solid fa-chevron-left fa-2x"></i>
+                </button>
+                <div class="slider slider--trending"></div>
+                <button class="btn btn--right">
+                  <i class="fa-solid fa-chevron-right fa-2x"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="weekly-trending">
+              <h2 class="title secondary__heading">Upcoming Movies</h2>
+
+              <div class="carousel">
+                <button class="btn btn--left">
+                  <i class="fa-solid fa-chevron-left fa-2x"></i>
+                </button>
+                <div class="slider slider--upcoming"></div>
+                <button class="btn btn--right">
+                  <i class="fa-solid fa-chevron-right fa-2x"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="top-rated">
+              <h2 class="title secondary__heading">Top Rated Movies</h2>
+
+              <div class="carousel">
+                <button class="btn btn--left">
+                  <i class="fa-solid fa-chevron-left fa-2x"></i>
+                </button>
+                <div class="slider slider--top"></div>
+                <button class="btn btn--right">
+                  <i class="fa-solid fa-chevron-right fa-2x"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </section>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
