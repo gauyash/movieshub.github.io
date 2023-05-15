@@ -249,6 +249,8 @@ btnRight.forEach((items, index) => {
       limit = 4;
     } else if (itemsPerScreen == 3) {
       limit = 6;
+    } else if (itemsPerScreen == 2) {
+      limit = 9;
     }
 
     if (sliderIndex != limit) {
