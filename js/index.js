@@ -57,7 +57,6 @@ let displayMostPopular = (data) => {
         `;
 
     img.addEventListener("click", () => {
-      // img.classList.add("shows__col--active")
       watchMovie.innerHTML = `
             <h2 class="movie-title">${items.title}</h2>
 
@@ -195,36 +194,44 @@ function displayTopRatedMovies(data) {
   });
 }
 
-let search = document.querySelectorAll("#search-text");
+// Handle search functionality
+function handleSearch() {
+  let search = document.querySelectorAll("#search-text");
+  let searchBtn = document.querySelectorAll(".search-btn");
 
-let searchBar = document.querySelectorAll(".search-bar");
-let searchbtn = document.querySelectorAll(".search-btn");
-
-searchbtn.forEach((items, index) => {
-  items.addEventListener("click", () => {
-    localStorage.setItem("id", search[index].value);
-    localStorage.setItem("searchName", search[index].value);
+  searchBtn.forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      localStorage.setItem("id", search[index].value);
+      localStorage.setItem("searchName", search[index].value);
+    });
   });
-});
 
-search.forEach((items, index) => {
-  items.addEventListener("change", () => {
-    localStorage.setItem("id", items.value);
-    localStorage.setItem("searchName", items.value);
+  search.forEach((input, index) => {
+    input.addEventListener("change", () => {
+      localStorage.setItem("id", input.value);
+      localStorage.setItem("searchName", input.value);
+    });
   });
-});
+}
 
-let menuIcon = document.querySelector(".menu i");
-let aside = document.querySelector("aside");
+handleSearch()
 
-menuIcon.addEventListener("click", () => {
-  aside.classList.toggle("active");
-  if (menuIcon.classList[1] == "fa-bars") {
-    menuIcon.classList.replace("fa-bars", "fa-xmark");
-  } else {
-    menuIcon.classList.replace("fa-xmark", "fa-bars");
-  }
-});
+// Toggle aside menu
+function toggleMenu() {
+  let menuIcon = document.querySelector(".menu i");
+  let aside = document.querySelector("aside");
+
+  menuIcon.addEventListener("click", () => {
+    aside.classList.toggle("active");
+    if (menuIcon.classList.contains("fa-bars")) {
+      menuIcon.classList.replace("fa-bars", "fa-xmark");
+    } else {
+      menuIcon.classList.replace("fa-xmark", "fa-bars");
+    }
+  });
+}
+
+toggleMenu();
 
 // SLIDER BUTTONS
 let limit;
