@@ -336,6 +336,7 @@ aside {
     opacity: 1;
     left: 0;
     z-index: 12;
+    background-color: black;
   }
 
   .active .menu-bar li a {
