@@ -72,7 +72,7 @@ async function displayMovieVideos(data) {
     let trailerCol = document.createElement("div");
 
     trailerCol.classList.add("trailer-col");
-    trailerCol.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${items.key}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+    trailerCol.innerHTML = `<iframe l width="100%" height="100%" src="https://www.youtube.com/embed/${items.key}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
     trailerRow.append(trailerCol);
   });
 }
@@ -141,6 +141,7 @@ function displaySimilarMovies(data) {
     a.href = "movie_details_page.html";
     a.classList.add("slider__box");
     img.src = `${imageUrl}${items.poster_path}`;
+    img.loading="lazy"
     a.append(img);
     sliderSimilar.append(a);
 

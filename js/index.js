@@ -163,6 +163,7 @@ function displayMovies(data, slider) {
     a.href = "movie_details_page.html";
     a.classList.add("slider__box");
     let img = document.createElement("img");
+    img.loading="lazy";
     img.src = `${imageUrl}${items.poster_path}`;
     a.append(img);
     slider.append(a);
